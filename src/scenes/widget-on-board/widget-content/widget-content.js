@@ -30,9 +30,13 @@ class APIService {
 		})
 			.then(function (data) {
 				console.log('Request succeeded with JSON response', data);
+
+				miro.showNotification('Drawing scheme...');
 			})
 			.catch(function (error) {
 				console.log('Request failed', error);
+
+				miro.showErrorNotification(error.message);
 			});
 	}
 }
