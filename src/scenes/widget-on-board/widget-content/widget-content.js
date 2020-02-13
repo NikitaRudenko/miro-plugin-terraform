@@ -15,6 +15,8 @@ window.onload = function() {
 				miro.showNotification('Drawing scheme...');
 			})
 			.catch((error) => {
+				console.log('Request failed', error);
+
 				miro.showErrorNotification(error.message);
 			})
 	});
@@ -47,10 +49,5 @@ class APIService {
 
 				return data;
 			})
-			.catch((error) => {
-				console.log('Request failed', error);
-
-				return error;
-			});
 	}
 }
