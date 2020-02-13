@@ -9,7 +9,12 @@ function run() {
 				toolbarSvgIcon: icon24,
 				librarySvgIcon: icon48,
 				onClick: () => {
-					miro.board.ui.openLeftSidebar('src/scenes/widget-on-board/widget-content/widget-content.html')
+					miro.board.ui.openLeftSidebar(
+						'src/scenes/widget-on-board/widget-content/widget-content.html',
+						{
+							width: 420
+						}
+					)
 				}
 			}
 		}
