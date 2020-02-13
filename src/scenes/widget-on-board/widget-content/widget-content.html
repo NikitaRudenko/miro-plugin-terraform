@@ -60,6 +60,11 @@
 			padding: 0 24px;
 		}
 
+		.t-plugin-editor-code {
+			max-height: 100%;
+			overflow: auto;
+		}
+
 		.t-plugin-editor__control {
 			width: 100%;
 			height: 100%;
@@ -84,7 +89,7 @@
 			Terraform
 		</div>
 		<div class="t-plugin-editor">
-			<pre contenteditable="true"><code class="tf">
+			<pre contenteditable="true" class="t-plugin-editor-code"><code class="tf">
 resource "aws_lb" "this" {
   name                       = "web-app"
   internal                   = false
@@ -94,6 +99,16 @@ resource "aws_lb" "this" {
   idle_timeout               = 1800
   enable_http2               = true
   enable_deletion_protection = false
+}
+
+resource "aws_lb_listener" "this" {
+  load_balancer_arn = aws_lb.this.arn
+  port              = "80"
+  protocol          = "HTTP"
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.this.arn
+  }
 }
 			</code></pre>
 		</div>

@@ -1,44 +1,22 @@
-miro.onReady(() => {
-    miro.addListener('SELECTION_UPDATED', (e) => {
-        showStatistics(e.data)
-    });
-    miro.board.selection.get().then(showStatistics)
-});
+window.onload = function() {
+	const tPluginDrawControl = document.querySelector('.t-plugin-draw-control')
+	const tPluginEditorControl = document.querySelector('code.terraform')
+
+	/** User clicked on "Draw scheme" button  */
+	tPluginDrawControl.addEventListener('click', (e) => {
+		const terraformCode = tPluginEditorControl.textContent
+
+		console.warn(terraformCode)
+	});
+}
 
 class APIService {
-	get PARSE_URL() {
-		return '52.210.137.238:5000/parse'
+	constructor() {
+		this._parse_url = '52.210.137.238:5000/parse';
 	}
 
+	/** Request parse terraform code to the plain JSON */
 	parse() {
 
 	}
 }
-
-function showStatistics(selection) {
-    console.info('# selection: ', selection);
-}
-
-hljs.initHighlightingOnLoad()
-
-function getElement(className) {
-	return document.getElementsByClassName(document.getElementsByClassName).item(0)
-}
-
-function addHandlers() {
-	tPluginEditorControl.addEventListener('click', send)
-}
-
-function send() {
-	
-}
-
-function init() {
-	addHandlers()
-}
-
-
-const tPluginDrawControl = getElement('t-plugin-draw-control')
-const tPluginEditorControl = getElement('t-plugin-editor__control')
-
-init()
