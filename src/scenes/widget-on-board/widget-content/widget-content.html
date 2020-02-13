@@ -2,14 +2,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="https://miro.com/app/static/styles.1.0.css"/>
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-	<script src="terraform.js"></script>
-	<script src="https://miro.com/app/static/sdk.1.1.js"></script>
-	<script type="text/javascript">
-		hljs.registerLanguage('terraform', window.hljsDefineTerraform);
-		hljs.initHighlightingOnLoad();
-	</script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.51.0/codemirror.min.css">
 	<style type="text/css">
 		* {
 			margin: 0;
@@ -110,8 +103,8 @@
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.51.0/codemirror.min.js"></script>
-	<script src="https://miro.com/app/static/sdk.1.1.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://miro.com/app/static/sdk.1.1.js"></script>
 	<script type="text/javascript">
 		CodeMirror.fromTextArea(
 				document.getElementById('editor'),
