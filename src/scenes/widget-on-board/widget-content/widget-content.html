@@ -2,15 +2,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="https://miro.com/app/static/styles.1.0.css"/>
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-	<script src="terraform.js"></script>
-	<script src="https://miro.com/app/static/sdk.1.1.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script type="text/javascript">
-		hljs.registerLanguage('terraform', window.hljsDefineTerraform);
-		hljs.initHighlightingOnLoad();
-	</script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.51.0/codemirror.min.css">
 	<style type="text/css">
 		* {
 			margin: 0;
@@ -21,6 +13,7 @@
 			font-family: "Formular";
 			src: url("https://miro.com/app/static/static/fonts/general/FormularRegular/formular-regular.4b9930.woff2");
 		}
+
 		body, button, input, textarea, select {
 			font: 14px OpenSans, Arial, Helvetica, sans-serif;
 			font-style: normal;
@@ -62,8 +55,9 @@
 		}
 
 		.t-plugin-editor-code {
-			max-height: 100%;
 			overflow: auto;
+			height: 100%;
+			max-height: 100%;
 		}
 
 		.t-plugin-editor__control {
@@ -81,6 +75,11 @@
 			align-items: center;
 			font-family: Formular, sans-serif;
 		}
+
+		.CodeMirror {
+			height: auto;
+			font-size: 12px;
+		}
 	</style>
 	<script src="widget-content.js"></script>
 </head>
@@ -90,28 +89,9 @@
 			Terraform
 		</div>
 		<div class="t-plugin-editor">
-			<pre contenteditable="true" class="t-plugin-editor-code"><code class="tf">
-resource "aws_lb" "this" {
-  name                       = "web-app"
-  internal                   = false
-  load_balancer_type         = "application"
-  subnets                    = "subnet-123"
-  security_groups            = ["sg-123"]
-  idle_timeout               = 1800
-  enable_http2               = true
-  enable_deletion_protection = false
-}
-
-resource "aws_lb_listener" "this" {
-  load_balancer_arn = aws_lb.this.arn
-  port              = "80"
-  protocol          = "HTTP"
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.this.arn
-  }
-}
-			</code></pre>
+			<div class="t-plugin-editor__control miro-input miro-input--primary">
+				<textarea class="t-plugin-editor__control" id="editor"></textarea>
+			</div>
 		</div>
 		<div class="t-plugin-controls">
 			<div class="t-plugin-controls__elems">
@@ -121,5 +101,18 @@ resource "aws_lb_listener" "this" {
 			</div>
 		</div>
 	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.51.0/codemirror.min.js"></script>
+	<script src="https://miro.com/app/static/sdk.1.1.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+		CodeMirror.fromTextArea(
+				document.getElementById('editor'),
+				{
+					viewportMargin: Infinity,
+					scrollbarStyle: null
+				}
+		)
+	</script>
 </body>
 </html>
