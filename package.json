@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "http-server -p 8888",
+    "rock": "ngrok http 8888"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/NikitaRudenko/miro-plugin-terraform/issues"
   },
-  "homepage": "https://github.com/NikitaRudenko/miro-plugin-terraform#readme"
+  "homepage": "https://github.com/NikitaRudenko/miro-plugin-terraform#readme",
+  "devDependencies": {
+    "http-server": "^0.12.1",
+    "ngrok": "^3.2.7"
+  }
 }

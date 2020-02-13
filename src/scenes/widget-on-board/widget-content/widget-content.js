@@ -9,3 +9,4 @@ function showStatistics(selection) {
 	console.info('# selection: ', selection);
 }
 
+hljs.initHighlightingOnLoad()
