@@ -16,11 +16,27 @@ window.onload = function() {
 
 class APIService {
 	constructor() {
-		this._parse_url = '52.210.137.238:5000/parse';
+		this._parse_url = 'http://52.210.137.238:5000/parse';
 	}
 
 	/** Request parse terraform code to the plain JSON */
 	parse(terraformCode) {
-		return axios.post(this._parse_url, terraformCode);
+		return fetch(this._parse_url, {
+			method: 'post',
+			headers: {
+				"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+			},
+			body: terraformCode
+		})
+			.then(function (data) {
+				console.log('Request succeeded with JSON response', data);
+
+				miro.showNotification('Drawing scheme...');
+			})
+			.catch(function (error) {
+				console.log('Request failed', error);
+
+				miro.showErrorNotification(error.message);
+			});
 	}
 }
