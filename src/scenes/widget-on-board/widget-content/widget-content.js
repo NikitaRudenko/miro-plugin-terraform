@@ -33,7 +33,7 @@ class APIService {
 				'Content-Type': 'application/json'
 			},
 			body: content,
-			mode: 'no-cors'
+			mode: 'cors'
 		})
 			.then((response) => response.json())
 			.then(function (data) {
