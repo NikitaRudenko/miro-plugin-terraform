@@ -10,13 +10,19 @@ window.onload = function() {
 
 		console.warn(terraformCode)
 
-		const plainJSON = await apiService.parse(terraformCode)
+		apiService.parse(terraformCode)
+			.then((graphs) => {
+				miro.showNotification('Drawing scheme...');
+			})
+			.catch((error) => {
+				miro.showErrorNotification(error.message);
+			})
 	});
 }
 
 class APIService {
 	constructor() {
-		this._parse_url = 'https://tf.testmiro.com/parse';
+		this._parse_url = 'https://tf.testmiro.com/parse_test';
 	}
 
 	/** Request parse terraform code to the plain JSON */
@@ -36,15 +42,15 @@ class APIService {
 			mode: 'cors'
 		})
 			.then((response) => response.json())
-			.then(function (data) {
+			.then((data) => {
 				console.log('Request succeeded with JSON response', data);
 
-				miro.showNotification('Drawing scheme...');
+				return data;
 			})
-			.catch(function (error) {
+			.catch((error) => {
 				console.log('Request failed', error);
 
-				miro.showErrorNotification(error.message);
+				return error;
 			});
 	}
 }
