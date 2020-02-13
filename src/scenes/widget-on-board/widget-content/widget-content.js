@@ -16,18 +16,26 @@ window.onload = function() {
 
 class APIService {
 	constructor() {
-		this._parse_url = 'http://52.210.137.238:5000/parse';
+		this._parse_url = 'https://tf.testmiro.com/parse';
 	}
 
 	/** Request parse terraform code to the plain JSON */
 	parse(terraformCode) {
+		const content = JSON.stringify({
+			data: terraformCode
+		});
+
 		return fetch(this._parse_url, {
 			method: 'post',
+			cache: 'no-cache',
 			headers: {
-				"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
 			},
-			body: terraformCode
+			body: content,
+			mode: 'no-cors'
 		})
+			.then((response) => response.json())
 			.then(function (data) {
 				console.log('Request succeeded with JSON response', data);
 
