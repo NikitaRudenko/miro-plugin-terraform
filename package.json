@@ -1,0 +1,19 @@
+{
+  "name": "miro-plugin-terraform",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaRudenko/miro-plugin-terraform.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikitaRudenko/miro-plugin-terraform/issues"
+  },
+  "homepage": "https://github.com/NikitaRudenko/miro-plugin-terraform#readme"
+}
