@@ -91,7 +91,12 @@ class APIService {
 			},
 			mode: 'cors',
 			method: 'get'
-		}).catch((e) => console.error(e))
+		}).then((response) => response.json())
+			.then(data => {
+				console.log('Request succeeded with JSON response', data);
+				return data
+			})
+			.catch((e) => console.error(e))
 			// .then(responce => console.log(responce.json()))
 
 	}

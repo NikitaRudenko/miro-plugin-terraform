@@ -37,7 +37,8 @@
                         type: 'sticker',
                         metadata: {
                             [METADATA_KEY]: {
-                                nodeId: node.id
+                                nodeId: node.id,
+                                ...node.metadata
                             }
                         },
                         x: node.x,
@@ -52,7 +53,8 @@
                     url: `${static_url}/icons/${imageName}`,
                     metadata: {
                         [METADATA_KEY]: {
-                            nodeId: node.id
+                            nodeId: node.id,
+                            ...node.metadata
                         }
                     },
                     x: node.x,
