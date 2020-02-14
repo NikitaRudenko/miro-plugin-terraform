@@ -22,9 +22,9 @@
     const DEFAULT_NODE_TYPE = NodeType.AwsInstance;
 
     class GraphDrawer {
-        constructor(graph) {
+        constructor(graph, centerX, centerY) {
             this._graph = graph
-            calcGraph(this._graph, 0, 0)
+            calcGraph(this._graph, centerX, centerY)
         }
 
 
@@ -90,8 +90,8 @@
     }
 
     global['GraphDrawer'] = {
-        create(graph) {
-            return new GraphDrawer(graph)
+        create(graph, centerX, centerY) {
+            return new GraphDrawer(graph, centerX, centerY)
         }
     }
 })(window)

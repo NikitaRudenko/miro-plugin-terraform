@@ -26,7 +26,12 @@ window.onload = function() {
 				return response.graphs[0];
 			})
 			.then((graph) => {
-				GraphDrawer.create(graph).render(graph)
+				miro.board.viewport.get().then(rect => {
+					GraphDrawer.create(graph, rect.x + rect.width / 2, rect.y + rect.height / 2).render(graph)
+				}).catch((error) => {
+					console.log(error)
+					miro.showErrorNotification(NotificationMessage.Failed);
+				})
 			})
 			.catch((error) => {
 				console.log(error)
