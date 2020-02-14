@@ -1,3 +1,8 @@
+const NotificationMessage = {
+	Fetching: 'Parsing scheme...',
+	Failed: 'Failed to parse'
+}
+
 window.onload = function() {
 	const tPluginDrawControl = document.querySelector('.t-plugin-draw-control')
 	const tPluginEditorControl = document.querySelector('.t-plugin-editor__control')
@@ -10,14 +15,14 @@ window.onload = function() {
 
 		console.warn(terraformCode)
 
+		miro.showNotification(NotificationMessage.Fetching);
+
 		apiService.parse(terraformCode)
 			.then((graphs) => {
-				miro.showNotification('Drawing scheme...');
+				miro.board.services.drawGraphs()
 			})
 			.catch((error) => {
-				console.log('Request failed', error);
-
-				miro.showErrorNotification(error.message);
+				miro.showErrorNotification(NotificationMessage.Failed);
 			})
 	});
 }
