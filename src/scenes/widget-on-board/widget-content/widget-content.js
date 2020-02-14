@@ -4,7 +4,7 @@ const NotificationMessage = {
 	Failed: 'Failed to parse'
 }
 
-const host_url = 'https://5fd5e96a.ngrok.io/';
+const host_url = 'https://bbd1e543.ngrok.io/';
 
 /** URL to static (icons, public js modules, etc) */
 const static_url = `${host_url}/src/static`;
@@ -26,7 +26,12 @@ window.onload = function() {
 				return response.graphs[0];
 			})
 			.then((graph) => {
-				GraphDrawer.create(graph).render(graph)
+				miro.board.viewport.get().then(rect => {
+					GraphDrawer.create(graph, rect.x + rect.width / 2, rect.y + rect.height / 2).render(graph)
+				}).catch((error) => {
+					console.log(error)
+					miro.showErrorNotification(NotificationMessage.Failed);
+				})
 			})
 			.catch((error) => {
 				console.log(error)
@@ -49,13 +54,6 @@ const APIConfig = {
 		'Content-Type': 'application/json'
 	},
 	mode: 'cors',
-}
-
-/** Graph model */
-class Graph {
-	constructor(params) {
-		this.params = params;
-	}
 }
 
 class APIService {
