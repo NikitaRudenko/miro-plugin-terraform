@@ -4,11 +4,6 @@ const NotificationMessage = {
 	Failed: 'Failed to parse'
 }
 
-const host_url = 'https://bbd1e543.ngrok.io/';
-
-/** URL to static (icons, public js modules, etc) */
-const static_url = `${host_url}/src/static`;
-
 window.onload = function() {
 	const tPluginDrawControl = document.querySelector('.t-plugin-draw-control')
 

@@ -1,5 +1,10 @@
 (function(global) {
 
+    const host_url = 'https://nikitarudenko.github.io/miro-plugin-terraform';
+
+    /** URL to static (icons, public js modules, etc) */
+    const static_url = `${host_url}/src/static`;
+
     const METADATA_KEY = '3074457345621854627'
 
     const NodeType = {
