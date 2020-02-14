@@ -50,7 +50,9 @@
 		}
 
 		.t-plugin-editor {
-			height: calc(100% - 128px);
+			/*height: calc(100% - 128px);*/
+			/*height: 100%*/
+			flex-grow:1;
 			padding: 0 24px;
 		}
 
@@ -71,7 +73,8 @@
 		.t-plugin-controls {
 			display: flex;
 			height: 64px;
-			padding: 0 8px;
+			padding: 24px;
+			padding-top: 0;
 			align-items: center;
 			font-family: Formular, sans-serif;
 		}
@@ -80,13 +83,106 @@
 			height: auto;
 			font-size: 12px;
 		}
+
+		#info {
+			overflow: hidden;
+			box-sizing: border-box;
+			padding: 0 24px;
+			transition: all 0.3s ease-out;
+			padding-bottom: 20px;
+		}
+
+		#info.hide {
+			height: 0px;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		table td, table th {
+			border: 1px solid #ddd;
+			padding: 8px;
+		}
+
+		table tr:nth-child(even){background-color: #f2f2f2;}
+
+		table tr:hover {background-color: #ddd;}
+
+		table th {
+			text-align: left;
+			background-color: #e5e1e9;
+
+		}
 	</style>
+	<script src="bonus.js"></script>
 	<script src="widget-content.js"></script>
 </head>
 <body>
 	<div class="t-plugin-page">
 		<div class="t-plugin-title miro-h1">
 			Terraform
+		</div>
+		<div class="info hide"  id="info">
+			<h3>info</h3>
+			<p class="miro-p-large" style="padding-bottom: 10px">
+				$2.583 per Dedicated Linux c5.12xlarge Instance Hour
+			</p>
+			<table>
+				<tr>
+					<th>
+						Processor
+					</th>
+					<td>
+						Intel Xeon Platinum 8275L
+					</td>
+				</tr>
+				<tr>
+					<th>
+						OS
+					</th>
+					<td>
+						Linux
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Clock speed
+					</th>
+					<td>
+						3.0 GHz
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Memory
+					</th>
+					<td>
+						96 GiB
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Price
+					</th>
+					<td>
+						2.583
+					</td>
+				</tr>
+			</table>
+			<!---
+			id: "4SR9RFRBXHFABJMA"
+			vcpu: "48"
+			memory: "96 GiB"
+			clockSpeed: "3.0 GHz"
+			operatingSystem: "Linux"
+			price: 2.583
+			unit: "Hrs"
+			physicalProcessor: "Intel Xeon Platinum 8275L"
+			description: "$2.583 per Dedicated Linux c5.12xlarge Instance Hour
+
+		--->
 		</div>
 		<div class="t-plugin-editor">
 			<div class="t-plugin-editor__control miro-input miro-input--primary">
