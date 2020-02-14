@@ -44,7 +44,9 @@ body, button, input, textarea, select {
 }
 
 .t-plugin-editor {
-    height: calc(100% - 128px);
+    /*height: calc(100% - 128px);*/
+    /*height: 100%*/
+    flex-grow:1;
     padding: 0 24px;
 }
 
@@ -65,7 +67,8 @@ body, button, input, textarea, select {
 .t-plugin-controls {
     display: flex;
     height: 64px;
-    padding: 0 8px;
+    padding: 24px;
+    padding-top: 0;
     align-items: center;
     font-family: Formular, sans-serif;
 }
@@ -73,4 +76,37 @@ body, button, input, textarea, select {
 .CodeMirror {
     height: auto;
     font-size: 12px;
+}
+
+#info {
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 24px;
+    transition: height 0.3s ease-out;
+    padding-bottom: 20px;
+}
+
+#info.hide {
+    height: 0px;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+    text-align: left;
+    background-color: #e5e1e9;
+
 }

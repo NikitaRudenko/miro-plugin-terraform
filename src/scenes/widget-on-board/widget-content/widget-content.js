@@ -44,7 +44,6 @@ window.onload = function() {
 				miro.board.services.drawGraphs()
 			})
 			.catch((error) => {
-
 				miro.showErrorNotification(NotificationMessage.Failed);
 			})
 	});
