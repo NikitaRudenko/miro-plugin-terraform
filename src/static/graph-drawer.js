@@ -1,7 +1,5 @@
 (function(global) {
 
-    const METADATA_KEY = '3074457345621854627'
-
     const NodeType = {
         /** Mapped to image "Elastic Instance" */
         AwsLib: 'aws_lb',
