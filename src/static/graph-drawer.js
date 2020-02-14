@@ -32,6 +32,20 @@
             const widgetsToCreate = this._graph.nodes.map((node) => {
                 const imageName = NODE_TYPE_IMAGE_MAP[node.type] || NODE_TYPE_IMAGE_MAP[DEFAULT_NODE_TYPE]
 
+                if (node.type === NodeType.AwsGroup || node.type === NodeType.AwsListener) {
+                    return {
+                        type: 'sticker',
+                        metadata: {
+                            [METADATA_KEY]: {
+                                nodeId: node.id
+                            }
+                        },
+                        x: node.x,
+                        y: node.y,
+                        text: node.type
+                    }
+                }
+
                 return {
                     type: 'image',
                     url: `${static_url}/icons/${imageName}`,
@@ -41,7 +55,8 @@
                         }
                     },
                     x: node.x,
-                    y: node.y
+                    y: node.y,
+                    scale: 2
                 }
             });
 
