@@ -39,7 +39,7 @@
                     return {
                         type: 'sticker',
                         metadata: {
-                            [METADATA_KEY]: {
+                            [global.METADATA_KEY]: {
                                 nodeId: node.id,
                                 ...node.metadata
                             }
@@ -55,7 +55,7 @@
                     type: 'image',
                     url: `${static_url}/icons/${imageName}`,
                     metadata: {
-                        [METADATA_KEY]: {
+                        [global.METADATA_KEY]: {
                             nodeId: node.id,
                             ...node.metadata
                         }
