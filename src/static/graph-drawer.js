@@ -75,7 +75,11 @@
             const links = this._graph.links.map((link) => ({
                 type: 'line',
                 startWidgetId: nodeIdWidgetMap[link.srcNode.id].id,
-                endWidgetId: nodeIdWidgetMap[link.dstNode.id].id
+                endWidgetId: nodeIdWidgetMap[link.dstNode.id].id,
+                style: {
+                    lineType: 2,
+                    lineEndStyle: 1
+                }
             }))
 
             return miro.board.widgets.create(links)
