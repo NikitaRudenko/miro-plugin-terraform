@@ -30,13 +30,15 @@
 	<script type="text/javascript" src="/src/static/graph.js"></script>
 	<script type="text/javascript" src="/src/static/graph-drawer.js"></script>
 	<script type="text/javascript">
-		CodeMirror.fromTextArea(
+		const editor = CodeMirror.fromTextArea(
 				document.getElementById('editor'),
 				{
 					viewportMargin: Infinity,
 					scrollbarStyle: null
 				}
 		)
+
+		window.editor = editor;
 	</script>
 	<script src="widget-content.js"></script>
 </body>

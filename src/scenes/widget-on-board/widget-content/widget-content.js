@@ -11,19 +11,17 @@ const static_url = `${host_url}/src/static`;
 
 window.onload = function() {
 	const tPluginDrawControl = document.querySelector('.t-plugin-draw-control')
-	const tPluginEditorControl = document.querySelector('.t-plugin-editor__control')
 
 	const apiService = new APIService();
 
 	/** User clicked on "Draw scheme" button  */
 	tPluginDrawControl.addEventListener('click', async (e) => {
-		const terraformCode = tPluginEditorControl.textContent
+		const terraformCode = editor.getValue();
 
 		console.warn(terraformCode)
 		const graph = testCalcGraph();
 		GraphDrawer.create(graph).render(graph)
 
-		return
 		miro.showNotification(NotificationMessage.Fetching);
 
 		apiService.parse(terraformCode)
@@ -37,10 +35,7 @@ window.onload = function() {
 
 				miro.board.widgets.create({
 					type: 'image',
-					url: `${static_url}/icons/ec2-instance-container.svg`,
-					metadata: {
-						keyTest: 'valueTest'
-					}
+					url: `${static_url}/icons/ec2-instance-container.svg`
 				});
 				miro.board.services.drawGraphs()
 			})
@@ -59,7 +54,7 @@ class Graph {
 
 class APIService {
 	constructor() {
-		this._parse_url = 'https://tf.testmiro.com/parse_test';
+		this._parse_url = 'https://tf.testmiro.com/parse';
 	}
 
 	/** Request parse terraform code to the plain JSON */
