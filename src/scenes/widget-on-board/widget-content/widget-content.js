@@ -11,13 +11,12 @@ const static_url = `${host_url}/src/static`;
 
 window.onload = function() {
 	const tPluginDrawControl = document.querySelector('.t-plugin-draw-control')
-	const tPluginEditorControl = document.querySelector('.t-plugin-editor__control')
 
 	const apiService = new APIService();
 
 	/** User clicked on "Draw scheme" button  */
 	tPluginDrawControl.addEventListener('click', async (e) => {
-		const terraformCode = tPluginEditorControl.textContent
+		const terraformCode = editor.getValue();
 		miro.showNotification(NotificationMessage.Fetching);
 
 		apiService.parse(terraformCode)
