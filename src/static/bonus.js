@@ -10,7 +10,7 @@ var BONUS = function (api) {
 		}
 
 		if (event.data.length  === 1) {
-			let {instance_type,availability_zone } = event.data[0].metadata
+			let {instance_type,availability_zone } = event.data[0].metadata[METADATA_KEY]
 
 			if (instance_type && availability_zone) {
 
