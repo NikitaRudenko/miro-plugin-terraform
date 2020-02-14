@@ -4,7 +4,8 @@ var OFFSET_Y = 150;
 function testCalcGraph() {
 	var graph = Object.assign(JSON_TEST)
 	calcGraph(graph, 0, 0)
-	console.log(graph)
+
+	return graph
 }
 
 function calcGraph(graph, centerX, centerY) {

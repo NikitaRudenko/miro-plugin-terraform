@@ -25,5 +25,3 @@ miro.onReady(run);
 
 const currentDate = new Date();
 console.info(`Hello Miro app by time: ${currentDate.getHours()}:${currentDate.getMinutes()}`);
-
-testCalcGraph();

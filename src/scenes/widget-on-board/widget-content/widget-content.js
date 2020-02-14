@@ -4,7 +4,7 @@ const NotificationMessage = {
 	Failed: 'Failed to parse'
 }
 
-const host_url = 'https://86ce345b.ngrok.io';
+const host_url = 'https://c098e8ea.ngrok.io/';
 
 /** URL to static (icons, public js modules, etc) */
 const static_url = `${host_url}/src/static`;
@@ -20,7 +20,10 @@ window.onload = function() {
 		const terraformCode = tPluginEditorControl.textContent
 
 		console.warn(terraformCode)
+		const graph = testCalcGraph();
+		GraphDrawer.create(graph).render(graph)
 
+		return
 		miro.showNotification(NotificationMessage.Fetching);
 
 		apiService.parse(terraformCode)
