@@ -42,7 +42,8 @@
                         },
                         x: node.x,
                         y: node.y,
-                        text: node.type
+                        text: node.type,
+                        scale: 0.5
                     }
                 }
 
