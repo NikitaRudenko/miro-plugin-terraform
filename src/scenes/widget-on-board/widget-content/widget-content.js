@@ -4,7 +4,7 @@ const NotificationMessage = {
 	Failed: 'Failed to parse'
 }
 
-const host_url = 'https://5fd5e96a.ngrok.io/';
+const host_url = 'https://nikitarudenko.github.io/miro-plugin-terraform';
 
 /** URL to static (icons, public js modules, etc) */
 const static_url = `${host_url}/src/static`;
