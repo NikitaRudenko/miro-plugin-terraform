@@ -3,121 +3,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="https://miro.com/app/static/styles.1.0.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.51.0/codemirror.min.css">
-	<style type="text/css">
-		* {
-			margin: 0;
-			padding: 0;
-		}
-
-		@font-face{
-			font-family: "Formular";
-			src: url("https://miro.com/app/static/static/fonts/general/FormularRegular/formular-regular.4b9930.woff2");
-		}
-
-		body, button, input, textarea, select {
-			font: 14px OpenSans, Arial, Helvetica, sans-serif;
-			font-style: normal;
-			font-variant-ligatures: normal;
-			font-variant-caps: normal;
-			font-variant-numeric: normal;
-			font-variant-east-asian: normal;
-			font-weight: normal;
-			font-stretch: normal;
-			font-size: 14px;
-			line-height: normal;
-			font-family: OpenSans, Arial, Helvetica, sans-serif;
-		}
-
-		* {
-			margin: 0;
-			padding: 0;
-		}
-
-		.t-plugin-page {
-			display: flex;
-			width: 100%;
-			height: 100%;
-			flex-flow: column;
-			justify-content: stretch;
-		}
-
-		.t-plugin-title {
-			display: flex;
-			height: 64px;
-			padding: 0 24px;
-			align-items: center;
-			font-family: Formular, sans-serif;
-		}
-
-		.t-plugin-editor {
-			/*height: calc(100% - 128px);*/
-			/*height: 100%*/
-			flex-grow:1;
-			padding: 0 24px;
-		}
-
-		.t-plugin-editor-code {
-			overflow: auto;
-			height: 100%;
-			max-height: 100%;
-		}
-
-		.t-plugin-editor__control {
-			width: 100%;
-			height: 100%;
-			max-width: 100%;
-			max-height: 95%;
-			resize: none;
-		}
-
-		.t-plugin-controls {
-			display: flex;
-			height: 64px;
-			padding: 24px;
-			padding-top: 0;
-			align-items: center;
-			font-family: Formular, sans-serif;
-		}
-
-		.CodeMirror {
-			height: auto;
-			font-size: 12px;
-		}
-
-		#info {
-			overflow: hidden;
-			box-sizing: border-box;
-			padding: 0 24px;
-			transition: all 0.3s ease-out;
-			padding-bottom: 20px;
-		}
-
-		#info.hide {
-			height: 0px;
-		}
-
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
-
-		table td, table th {
-			border: 1px solid #ddd;
-			padding: 8px;
-		}
-
-		table tr:nth-child(even){background-color: #f2f2f2;}
-
-		table tr:hover {background-color: #ddd;}
-
-		table th {
-			text-align: left;
-			background-color: #e5e1e9;
-
-		}
-	</style>
-	<script src="bonus.js"></script>
-	<script src="widget-content.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div class="t-plugin-page">
@@ -199,8 +85,10 @@
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.51.0/codemirror.min.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://miro.com/app/static/sdk.1.1.js"></script>
+	<script type="text/javascript" src="/src/static/test_graph.js"></script>
+	<script type="text/javascript" src="/src/static/graph.js"></script>
+	<script type="text/javascript" src="/src/static/graph-drawer.js"></script>
 	<script type="text/javascript">
 		CodeMirror.fromTextArea(
 				document.getElementById('editor'),
@@ -210,5 +98,6 @@
 				}
 		)
 	</script>
+	<script src="widget-content.js"></script>
 </body>
 </html>
