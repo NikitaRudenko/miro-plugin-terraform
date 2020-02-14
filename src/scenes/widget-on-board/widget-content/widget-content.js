@@ -1,5 +1,6 @@
 const NotificationMessage = {
 	Fetching: 'Parsing scheme...',
+	Drawing: 'Drawing scheme...',
 	Failed: 'Failed to parse'
 }
 
@@ -24,7 +25,7 @@ window.onload = function() {
 
 		apiService.parse(terraformCode)
 			.then((response) => {
-				miro.showNotification('Drawing scheme...');
+				miro.showNotification(NotificationMessage.Drawing);
 
 				return response.graphs;
 			})
@@ -36,6 +37,7 @@ window.onload = function() {
 					url: `${static_url}/icons/ec2-instance-container.svg`
 				});
 				miro.board.services.drawGraphs()
+			})
 			.catch((error) => {
 				miro.showErrorNotification(NotificationMessage.Failed);
 			})
