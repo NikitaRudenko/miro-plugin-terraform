@@ -17,7 +17,7 @@ var BONUS = function (api) {
 				api.getInfo(instance_type, availability_zone).then(data => {
 					console.log('responce',data)
 					if (data && data.description) {
-						let tmpl = getTable('info',data)
+						let tmpl = getTable('info for ' + instance_type, data)
 						info.innerHTML = tmpl
 						info.classList.remove('hide')
 					}
