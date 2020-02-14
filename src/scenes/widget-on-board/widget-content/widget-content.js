@@ -26,7 +26,10 @@ window.onload = function() {
 
 				miro.board.widgets.create({
 					type: 'image',
-					url: `${static_url}/icons/ec2-instance-container.svg`
+					url: `${static_url}/icons/ec2-instance-container.svg`,
+					metadata: {
+						keyTest: 'valueTest'
+					}
 				});
 			})
 			.catch((error) => {
