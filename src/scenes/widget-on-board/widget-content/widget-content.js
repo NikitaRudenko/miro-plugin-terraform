@@ -1,3 +1,9 @@
+const NotificationMessage = {
+	Fetching: 'Parsing scheme...',
+	Drawing: 'Drawing scheme...',
+	Failed: 'Failed to parse'
+}
+
 const host_url = 'https://86ce345b.ngrok.io';
 
 /** URL to static (icons, public js modules, etc) */
@@ -15,9 +21,11 @@ window.onload = function() {
 
 		console.warn(terraformCode)
 
+		miro.showNotification(NotificationMessage.Fetching);
+
 		apiService.parse(terraformCode)
 			.then((response) => {
-				miro.showNotification('Drawing scheme...');
+				miro.showNotification(NotificationMessage.Drawing);
 
 				return response.graphs;
 			})
@@ -31,11 +39,10 @@ window.onload = function() {
 						keyTest: 'valueTest'
 					}
 				});
+				miro.board.services.drawGraphs()
 			})
 			.catch((error) => {
-				console.log('Request failed', error);
-
-				miro.showErrorNotification(error.message);
+				miro.showErrorNotification(NotificationMessage.Failed);
 			})
 	});
 }
