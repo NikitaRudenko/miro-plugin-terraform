@@ -56,13 +56,6 @@ const APIConfig = {
 	mode: 'cors',
 }
 
-/** Graph model */
-class Graph {
-	constructor(params) {
-		this.params = params;
-	}
-}
-
 class APIService {
 	constructor() {
 		this._parse_url = 'https://tf.testmiro.com/parse';
