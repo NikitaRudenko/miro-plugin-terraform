@@ -3,6 +3,11 @@ const NotificationMessage = {
 	Failed: 'Failed to parse'
 }
 
+const host_url = 'https://86ce345b.ngrok.io';
+
+/** URL to static (icons, public js modules, etc) */
+const static_url = `${host_url}/src/static`;
+
 window.onload = function() {
 	const tPluginDrawControl = document.querySelector('.t-plugin-draw-control')
 	const tPluginEditorControl = document.querySelector('.t-plugin-editor__control')
@@ -18,13 +23,30 @@ window.onload = function() {
 		miro.showNotification(NotificationMessage.Fetching);
 
 		apiService.parse(terraformCode)
-			.then((graphs) => {
-				miro.board.services.drawGraphs()
+			.then((response) => {
+				miro.showNotification('Drawing scheme...');
+
+				return response.graphs;
 			})
+			.then((graphs) => {
+				console.log('graphs: ', graphs);
+
+				miro.board.widgets.create({
+					type: 'image',
+					url: `${static_url}/icons/ec2-instance-container.svg`
+				});
+				miro.board.services.drawGraphs()
 			.catch((error) => {
 				miro.showErrorNotification(NotificationMessage.Failed);
 			})
 	});
+}
+
+/** Graph model */
+class Graph {
+	constructor(params) {
+		this.params = params;
+	}
 }
 
 class APIService {
