@@ -37,7 +37,7 @@
 
                 if (node.type === NodeType.AwsGroup || node.type === NodeType.AwsListener) {
                     return {
-                        type: 'sticker',
+                        type: 'shape',
                         metadata: {
                             [global.METADATA_KEY]: {
                                 nodeId: node.id,
@@ -47,7 +47,9 @@
                         x: node.x,
                         y: node.y,
                         text: node.type,
-                        scale: 0.5
+                        width: 100,
+                        height: 100,
+                        scale: 1
                     }
                 }
 
