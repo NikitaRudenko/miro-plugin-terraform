@@ -18,7 +18,6 @@ window.onload = function() {
 	/** User clicked on "Draw scheme" button  */
 	tPluginDrawControl.addEventListener('click', async (e) => {
 		const terraformCode = tPluginEditorControl.textContent
-
 		miro.showNotification(NotificationMessage.Fetching);
 
 		apiService.parse(terraformCode)
@@ -35,6 +34,22 @@ window.onload = function() {
 				miro.showErrorNotification(NotificationMessage.Failed);
 			})
 	});
+
+	// console.log(miro)
+	setTimeout(function() {
+		BONUS(apiService , miro)
+	}, 100)
+}
+
+
+const APIConfig = {
+	method: 'post',
+	cache: 'no-cache',
+	headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json'
+	},
+	mode: 'cors',
 }
 
 /** Graph model */
@@ -56,14 +71,8 @@ class APIService {
 		});
 
 		return fetch(this._parse_url, {
-			method: 'post',
-			cache: 'no-cache',
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
+			...APIConfig,
 			body: content,
-			mode: 'cors'
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -71,5 +80,22 @@ class APIService {
 
 				return data;
 			})
+	}
+
+
+	getInfo(instanceType, region) {
+		console.log('BONUS ', instanceType, region)
+
+		return fetch(`https://tf.testmiro.com/get_props?instanceType=${instanceType}&region=${region}`,{
+			cache: 'no-cache',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			mode: 'cors',
+			method: 'get'
+		}).catch((e) => console.error(e))
+			// .then(responce => console.log(responce.json()))
+
 	}
 }
