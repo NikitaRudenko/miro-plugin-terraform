@@ -24,6 +24,7 @@
     class GraphDrawer {
         constructor(graph) {
             this._graph = graph
+            calcGraph(this._graph, 0, 0)
         }
 
 
