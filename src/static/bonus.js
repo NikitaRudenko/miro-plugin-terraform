@@ -13,10 +13,10 @@ var BONUS = function (api) {
 			let {instance_type,availability_zone } = event.data[0].metadata[METADATA_KEY]
 
 			if (instance_type && availability_zone) {
-
+				availability_zone = availability_zone.substring(0, availability_zone.length - 1);
 				api.getInfo(instance_type, availability_zone).then(data => {
 					console.log('responce',data)
-					if (data.description) {
+					if (data && data.description) {
 						let tmpl = getTable('info',data)
 						info.innerHTML = tmpl
 						info.classList.remove('hide')
