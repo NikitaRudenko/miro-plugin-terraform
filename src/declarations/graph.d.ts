@@ -7,8 +7,11 @@ declare enum GraphLabel {
 }
 
 declare enum NodeType {
+	/** Mapped to image "Elastic Instance" */
 	AwsLib = 'aws_lb',
 	AwsListener = 'aws_lb_listener',
+
+	/** Mapped to image "EC2 Instance Container" */
 	AwsInstance = 'aws_lb_instance',
 	AwsGroup = 'aws_lb_target_group'
 }

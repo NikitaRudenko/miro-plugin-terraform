@@ -5,7 +5,7 @@ function run() {
 	miro.initialize({
 		extensionPoints: {
 			toolbar: {
-				title: 'Terraform Parser',
+				title: 'Terraform',
 				toolbarSvgIcon: icon24,
 				librarySvgIcon: icon48,
 				onClick: () => {
