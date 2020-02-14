@@ -44,8 +44,7 @@ body, button, input, textarea, select {
 }
 
 .t-plugin-editor {
-    /*height: calc(100% - 128px);*/
-    /*height: 100%*/
+    height: calc(100% - 152px);
     flex-grow:1;
     padding: 0 24px;
 }
